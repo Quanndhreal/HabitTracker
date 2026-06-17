@@ -1,156 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F9F9F9">
+    android:background="#F9F9F9"
+    android:fillViewport="true">
 
-    <LinearLayout
-        android:id="@+id/llTopBar"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:padding="20dp"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_round_stats"
-            android:padding="10dp"
-            android:src="@android:drawable/ic_menu_revert"
-            app:tint="#111111" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Detail"
-            android:textAlignment="center"
-            android:textColor="#111111"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@drawable/bg_round_stats"
-            android:padding="10dp"
-            android:src="@android:drawable/ic_menu_edit"
-            app:tint="#111111" />
-    </LinearLayout>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvHabitOverview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="12dp"
-        app:cardBackgroundColor="#111111"
-        app:cardCornerRadius="24dp"
-        app:layout_constraintTop_toBottomOf="@id/llTopBar">
-
+        <!-- Top Bar -->
         <LinearLayout
+            android:id="@+id/llTopBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="24dp">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_round_stats"
+                android:padding="10dp"
+                android:src="@android:drawable/ic_menu_revert"
+                app:tint="#111111" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/tvDetailTitle"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Drink 1.8L Water"
-                android:textColor="#FFFFFF"
-                android:textSize="28sp"
+                android:layout_weight="1"
+                android:text="Detail"
+                android:textAlignment="center"
+                android:textColor="#111111"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Hydration is key to daily energy."
-                android:textColor="#888888"
-                android:textSize="14sp" />
+            <ImageView
+                android:id="@+id/btnEdit"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_round_stats"
+                android:padding="10dp"
+                android:src="@android:drawable/ic_menu_edit"
+                app:tint="#111111" />
+        </LinearLayout>
+
+        <!-- Habit Overview Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvHabitOverview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="12dp"
+            app:cardBackgroundColor="#111111"
+            app:cardCornerRadius="24dp"
+            app:layout_constraintTop_toBottomOf="@id/llTopBar">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:id="@+id/tvHabitName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    tools:text="Drink 1.8L Water" />
+
+                <TextView
+                    android:id="@+id/tvHabitDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#888888"
+                    android:textSize="14sp"
+                    tools:text="Hydration is key to daily energy." />
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🔥 Streak" android:textColor="#888888" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="12 Days" android:textColor="#FFFFFF" android:textSize="20sp" android:textStyle="bold" />
-                </LinearLayout>
+                    android:layout_marginTop="24dp"
+                    android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="📊 Success" android:textColor="#888888" />
-                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="85%" android:textColor="#FFFFFF" android:textSize="20sp" android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔥 Streak"
+                            android:textColor="#888888" />
+                        <TextView
+                            android:id="@+id/tvStreakCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:text="12 Days" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📊 Success"
+                            android:textColor="#888888" />
+                        <TextView
+                            android:id="@+id/tvSuccessRate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            tools:text="85%" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
 
-    <TextView
-        android:id="@+id/tvHeatmapTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:text="Consistency Map"
-        android:textColor="#111111"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cvHabitOverview" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="16dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="20dp"
-        app:strokeWidth="1dp"
-        app:strokeColor="#E0E0E0"
-        app:layout_constraintTop_toBottomOf="@id/tvHeatmapTitle">
-
-        <GridLayout
+        <!-- Heatmap Title -->
+        <TextView
+            android:id="@+id/tvHeatmapTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="16dp"
-            android:columnCount="7"
-            android:rowCount="4">
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="32dp"
+            android:text="Consistency Map"
+            android:textColor="#111111"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvHabitOverview" />
 
-            <View android:layout_width="28dp" android:layout_height="28dp" android:layout_margin="4dp" android:background="#EBEBEB" />
-            <View android:layout_width="28dp" android:layout_height="28dp" android:layout_margin="4dp" android:background="#9BE9A8" />
-            <View android:layout_width="28dp" android:layout_height="28dp" android:layout_margin="4dp" android:background="#40C463" />
-            <View android:layout_width="28dp" android:layout_height="28dp" android:layout_margin="4dp" android:background="#30A14E" />
-            <View android:layout_width="28dp" android:layout_height="28dp" android:layout_margin="4dp" android:background="#EBEBEB" />
-            <View android:layout_width="28dp" android:layout_height="28dp" android:layout_margin="4dp" android:background="#40C463" />
-            <View android:layout_width="28dp" android:layout_height="28dp" android:layout_margin="4dp" android:background="#216E39" />
+        <!-- Heatmap Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvHeatmap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="48dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="#E0E0E0"
+            app:layout_constraintTop_toBottomOf="@id/tvHeatmapTitle">
 
-            <View android:layout_width="28dp" android:layout_height="28dp" android:layout_margin="4dp" android:background="#9BE9A8" />
-            <View android:layout_width="28dp" android:layout_height="28dp" android:layout_margin="4dp" android:background="#9BE9A8" />
-            <View android:layout_width="28dp" android:layout_height="28dp" android:layout_margin="4dp" android:background="#EBEBEB" />
-            <View android:layout_width="28dp" android:layout_height="28dp" android:layout_margin="4dp" android:background="#216E39" />
-            <View android:layout_width="28dp" android:layout_height="28dp" android:layout_margin="4dp" android:background="#40C463" />
-            <View android:layout_width="28dp" android:layout_height="28dp" android:layout_margin="4dp" android:background="#30A14E" />
-            <View android:layout_width="28dp" android:layout_height="28dp" android:layout_margin="4dp" android:background="#9BE9A8" />
+            <com.yourapp.habittracker.ui.detail.HeatmapView
+                android:id="@+id/heatmapView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp" />
+        </com.google.android.material.card.MaterialCardView>
 
-        </GridLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

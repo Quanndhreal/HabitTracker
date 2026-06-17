@@ -1,204 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="#FFFFFF"
-    android:fillViewport="true">
+    android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/rlTopBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="100dp">
+        android:padding="20dp">
 
-        <!-- Thanh Top Bar -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp">
-
-            <ImageView
-                android:id="@+id/ivGroup"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:background="@drawable/bg_round_stats"
-                android:backgroundTint="#111111"
-                android:padding="8dp"
-                android:src="@android:drawable/ic_menu_myplaces"
-                app:tint="#FFFFFF" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="Feeds"
-                android:textColor="#111111"
-                android:textSize="24sp"
-                android:textStyle="bold|italic" />
-
-            <ImageView
-                android:id="@+id/ivBell"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:background="@drawable/bg_round_stats"
-                android:backgroundTint="#EEEEEE"
-                android:padding="8dp"
-                android:src="@android:drawable/ic_popup_reminder"
-                app:tint="#111111" />
-        </RelativeLayout>
-
-        <!-- Thanh chuyển Tab (Public / Friends / Mine) -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
+        <ImageView
+            android:id="@+id/ivGroup"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
             android:background="@drawable/bg_round_stats"
-            android:backgroundTint="#F5F5F5"
-            android:orientation="horizontal"
-            android:padding="4dp">
+            android:backgroundTint="#111111"
+            android:padding="12dp"
+            android:src="@android:drawable/ic_menu_myplaces"
+            app:tint="#FFFFFF" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/bg_round_stats"
-                android:backgroundTint="#FFFFFF"
-                android:elevation="2dp"
-                android:paddingVertical="8dp"
-                android:text="Public"
-                android:textAlignment="center"
-                android:textColor="#111111"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingVertical="8dp"
-                android:text="Friends"
-                android:textAlignment="center"
-                android:textColor="#888888" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingVertical="8dp"
-                android:text="Mine"
-                android:textAlignment="center"
-                android:textColor="#888888" />
-        </LinearLayout>
-
-        <!-- Bài đăng mẫu (Mockup Post) -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvFeedsTitle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:orientation="vertical"
-            android:paddingHorizontal="20dp">
+            android:layout_centerInParent="true"
+            android:text="@string/feeds"
+            android:textColor="#111111"
+            android:textSize="24sp"
+            android:textStyle="bold|italic" />
 
-            <!-- Thông tin người đăng -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/ivBell"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_round_stats"
+            android:backgroundTint="#EEEEEE"
+            android:padding="12dp"
+            android:src="@android:drawable/ic_popup_reminder"
+            app:tint="#111111" />
+    </RelativeLayout>
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/bg_round_stats"
-                    android:backgroundTint="#CCCCCC" />
+    <LinearLayout
+        android:id="@+id/llTabContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/bg_round_stats"
+        android:backgroundTint="#F5F5F5"
+        android:orientation="horizontal"
+        android:padding="4dp">
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+        <TextView
+            android:id="@+id/tvTabPublic"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_round_stats"
+            android:backgroundTint="#FFFFFF"
+            android:clickable="true"
+            android:elevation="2dp"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/pub"
+            android:textColor="#111111"
+            android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="TheSteelShadow 🇺🇸 7h ago"
-                        android:textColor="#111111"
-                        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvTabFriends"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/friends"
+            android:textColor="#888888" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Day 7 of 2 Deep Breaths"
-                        android:textColor="#FF6D00"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="..."
-                    android:textColor="#888888"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <!-- Ảnh bài đăng -->
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="200dp"
-                android:layout_height="280dp"
-                android:layout_marginStart="52dp"
-                android:layout_marginTop="12dp"
-                app:cardBackgroundColor="#555555"
-                app:cardCornerRadius="16dp"
-                app:strokeWidth="0dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="TROTTERS\nPARK"
-                    android:textColor="#DDDDDD"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Chữ miêu tả -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="52dp"
-                android:layout_marginTop="12dp"
-                android:text="Taking in some fresh air"
-                android:textColor="#111111"
-                android:textSize="16sp" />
-
-            <!-- Nút tương tác (Reactions) -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="52dp"
-                android:layout_marginTop="12dp"
-                android:orientation="horizontal">
-
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/bg_round_stats" android:backgroundTint="#F0F0F0" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="👏 1" android:layout_marginEnd="8dp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/bg_round_stats" android:backgroundTint="#F0F0F0" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="🔥" android:layout_marginEnd="8dp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/bg_round_stats" android:backgroundTint="#F0F0F0" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="💪" android:layout_marginEnd="8dp"/>
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/bg_round_stats" android:backgroundTint="#F0F0F0" android:paddingHorizontal="12dp" android:paddingVertical="6dp" android:text="❤️ 1" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <!-- Đường kẻ ngang phân cách -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="24dp"
-            android:background="#EEEEEE" />
-
+        <TextView
+            android:id="@+id/tvTabMine"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/mine"
+            android:textColor="#888888" />
     </LinearLayout>
-</ScrollView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPosts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingTop="16dp"
+        android:paddingBottom="100dp"
+        tools:listitem="@layout/item_post" />
+
+</LinearLayout>

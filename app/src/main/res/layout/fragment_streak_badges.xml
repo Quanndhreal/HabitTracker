@@ -20,6 +20,7 @@
         app:tint="#FFFFFF" />
 
     <TextView
+        android:id="@+id/tvStreakFreeze"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_round_stats"
@@ -37,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="1"
+        android:text="0"
         android:textColor="#FFFFFF"
         android:textSize="80sp"
         android:textStyle="bold"
@@ -57,6 +58,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvBigStreak" />
 
+    <!-- Challenge Card -->
     <LinearLayout
         android:id="@+id/llChallengeCard"
         android:layout_width="match_parent"
@@ -83,27 +85,20 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tvChallengeDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Day 1 of 7"
                 android:textColor="#888888" />
         </LinearLayout>
 
+        <!-- Challenge Days -->
         <LinearLayout
+            android:id="@+id/llChallengeDays"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:orientation="horizontal">
-
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="T\n🔥" android:textAlignment="center" android:textColor="#555" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="W\n🔥" android:textAlignment="center" android:textColor="#555" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="T\n🔥" android:textAlignment="center" android:textColor="#555" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="F\n🔥" android:textAlignment="center" android:textColor="#555" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="S\n🔥" android:textAlignment="center" android:textColor="#555" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="S\n🔥" android:textAlignment="center" android:textColor="#555" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="M\n✅" android:textAlignment="center" android:textColor="#FF8A65" android:textStyle="bold"/>
-
-        </LinearLayout>
+            android:orientation="horizontal" />
     </LinearLayout>
 
     <TextView
@@ -116,24 +111,14 @@
         android:textColor="#CCCCCC"
         app:layout_constraintTop_toBottomOf="@id/llChallengeCard" />
 
+    <!-- Achievements Grid -->
     <GridLayout
+        android:id="@+id/glAchievements"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:columnCount="2"
         android:alignmentMode="alignMargins"
-        app:layout_constraintTop_toBottomOf="@id/tvGuide">
-
-        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical" android:gravity="center">
-            <TextView android:layout_width="80dp" android:layout_height="80dp" android:background="@drawable/bg_round_stats" android:backgroundTint="#1A1A1A" android:gravity="center" android:text="⚔️" android:textSize="36sp" />
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="7-Day Streak" android:textColor="#FFFFFF" android:textStyle="bold" />
-        </LinearLayout>
-
-        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:orientation="vertical" android:gravity="center">
-            <TextView android:layout_width="80dp" android:layout_height="80dp" android:background="@drawable/bg_round_stats" android:backgroundTint="#1A1A1A" android:gravity="center" android:text="🐺" android:textSize="36sp" android:alpha="0.3" />
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="14-Day Streak" android:textColor="#888888" android:textStyle="bold" />
-        </LinearLayout>
-
-    </GridLayout>
+        android:columnCount="2"
+        app:layout_constraintTop_toBottomOf="@id/tvGuide" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
