@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">HabitTracker</string>
+    <string name="app_name">Habit Tracker</string>
+    <string name="create_new_task">Create New Task</string>
+    <string name="task_name_hint">Task Name (e.g. Drink Water)</string>
+    <string name="description_optional">Description (optional)</string>
+    <string name="time_block">Time Block</string>
+    <string name="icon">Icon</string>
+    <string name="save_task">Save Task</string>
+    <string name="feeds">Feeds</string>
+    <string name="pub">Public</string>
+    <string name="friends">Friends</string>
+    <string name="mine">Mine</string>
+    <string name="new_task">New Task</string>
+    <string name="partial">Partial</string>
+    <string name="skip">Skip</string>
+    <string name="journey">Journey 🌟</string>
+    <string name="how_are_you_feeling">How are you\nfeeling today?</string>
+    <string name="tasks">Tasks</string>
+    <string name="visual_journey">The visual journey</string>
+    <string name="add_media">Add Media</string>
+    <string name="describe_feeling">Describe feeling</string>
+    <string name="add_text">Add Text</string>
+    <string name="your_improvements">Your Improvements</string>
+    <string name="settings">Settings</string>
 </resources>
