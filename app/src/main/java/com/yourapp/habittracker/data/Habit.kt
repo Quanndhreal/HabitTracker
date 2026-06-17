@@ -17,9 +17,9 @@ data class Habit(
 )
 
 enum class TimeBlock {
-    DAY_START,  // Buổi sáng (till 10AM)
-    THE_DAY,    // Trong ngày (10AM - 9PM)
-    DAY_END     // Buổi tối (9PM)
+    DAY_START,
+    THE_DAY,
+    DAY_END
 }
 
 enum class UnitType {

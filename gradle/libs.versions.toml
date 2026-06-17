@@ -1,13 +1,13 @@
 [versions]
-agp = "8.13.2"
-kotlin = "2.0.21"
-coreKtx = "1.18.0"
+agp = "8.2.2"  # ← HẠ TỪ 8.13.2 XUỐNG 8.2.2
+kotlin = "2.0.0"  # ← GIỮ NGUYÊN 2.0.0
+coreKtx = "1.12.0"  # ← Hạ xuống tương thích
 junit = "4.13.2"
-junitVersion = "1.3.0"
-espressoCore = "3.7.0"
+junitVersion = "1.1.5"  # ← Hạ xuống
+espressoCore = "3.5.1"  # ← Hạ xuống
 appcompat = "1.6.1"
-material = "1.10.0"
-activity = "1.13.0"
+material = "1.11.0"  # ← Tăng nhẹ
+activity = "1.9.3"  # ← Hạ xuống
 constraintlayout = "2.1.4"
 
 [libraries]
@@ -23,4 +23,3 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
