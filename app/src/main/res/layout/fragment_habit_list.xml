@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:paddingBottom="100dp">
 
+            <!-- Top Bar -->
             <LinearLayout
                 android:id="@+id/llTopBar"
                 android:layout_width="match_parent"
@@ -92,6 +93,7 @@
                     app:tint="#111111" />
             </LinearLayout>
 
+            <!-- Day Title -->
             <LinearLayout
                 android:id="@+id/llDayTitle"
                 android:layout_width="wrap_content"
@@ -110,7 +112,7 @@
                     android:fontFamily="sans-serif-medium"
                     android:textColor="#111111"
                     android:textSize="42sp"
-                    tools:text="Ngày 1" />
+                    tools:text="DAY 49" />
 
                 <TextView
                     android:id="@+id/tvDayTotal"
@@ -123,6 +125,129 @@
                     tools:text="/66" />
             </LinearLayout>
 
+            <!-- ===== 3 Ô THỐNG KÊ: To-dos, Done, Skipped ===== -->
+            <LinearLayout
+                android:id="@+id/llStatsRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_stats_card"
+                android:padding="12dp"
+                app:layout_constraintTop_toBottomOf="@id/llDayTitle">
+
+                <!-- To-dos -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="📋"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="To-dos"
+                        android:textColor="#666666"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvTodosCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="0"
+                        android:textColor="#111111"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="20dp"
+                    android:background="#E0E0E0" />
+
+                <!-- Done -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✅"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="Done"
+                        android:textColor="#666666"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvDoneCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="0"
+                        android:textColor="#4CAF50"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="20dp"
+                    android:background="#E0E0E0" />
+
+                <!-- Skipped -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⏭️"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="Skipped"
+                        android:textColor="#666666"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvSkippedCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="0"
+                        android:textColor="#FF9800"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Timeline Line -->
             <View
                 android:id="@+id/vTimelineLine"
                 android:layout_width="4dp"
@@ -132,8 +257,9 @@
                 android:background="#FF8A65"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/llDayTitle" />
+                app:layout_constraintTop_toBottomOf="@id/llStatsRow" />
 
+            <!-- Section Header -->
             <TextView
                 android:id="@+id/tvSectionHeader"
                 android:layout_width="wrap_content"
@@ -144,9 +270,10 @@
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/vTimelineLine"
-                app:layout_constraintTop_toBottomOf="@id/llDayTitle"
-                tools:text="Danh sách thói quen" />
+                app:layout_constraintTop_toBottomOf="@id/llStatsRow"
+                tools:text="The Day" />
 
+            <!-- RecyclerView -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvHabits"
                 android:layout_width="0dp"
@@ -161,6 +288,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <!-- FAB -->
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabAddHabit"
         android:layout_width="wrap_content"

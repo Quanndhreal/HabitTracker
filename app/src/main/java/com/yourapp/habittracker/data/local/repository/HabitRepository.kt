@@ -73,6 +73,7 @@ class HabitRepository(
         }
     }
 
+    // Các method đã có:
     suspend fun markPartial(habitId: Long, xpReward: Int) {
         try {
             val today = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)

@@ -1,6 +1,7 @@
 package com.yourapp.habittracker
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -14,6 +15,8 @@ import com.yourapp.habittracker.ui.statistics.StatsFragment
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var bottomNav: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,13 +28,12 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Mở màn hình Home mặc định
+        bottomNav = findViewById(R.id.bottomNav)
+
         if (savedInstanceState == null) {
             loadFragment(HabitListFragment())
         }
 
-        // Xử lý Bottom Navigation
-        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> {
@@ -53,11 +55,28 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
+        supportFragmentManager.addOnBackStackChangedListener {
+            val fragmentCount = supportFragmentManager.backStackEntryCount
+            if (fragmentCount > 0) {
+                bottomNav.visibility = View.GONE
+            } else {
+                bottomNav.visibility = View.VISIBLE
+            }
+        }
     }
 
     private fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
             .commit()
+    }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStack()
+        } else {
+            super.onBackPressed()
+        }
     }
 }

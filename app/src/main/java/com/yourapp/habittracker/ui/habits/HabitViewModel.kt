@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.yourapp.habittracker.HabitApplication
 import com.yourapp.habittracker.data.local.entity.HabitEntity
+import com.yourapp.habittracker.data.local.entity.HabitLogEntity
 import com.yourapp.habittracker.data.local.entity.UserStatsEntity
 import com.yourapp.habittracker.data.repository.HabitRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -56,8 +57,6 @@ class HabitViewModel(application: Application) : AndroidViewModel(application) {
     fun createHabitFromBottomSheet(habit: HabitEntity) {
         viewModelScope.launch {
             try {
-                android.util.Log.d("HabitViewModel", "Creating habit: ${habit.name}")
-
                 val currentCount = activeHabits.value.size
                 val newHabit = habit.copy(
                     sortOrder = currentCount + 1,
@@ -67,16 +66,11 @@ class HabitViewModel(application: Application) : AndroidViewModel(application) {
                     updatedAt = System.currentTimeMillis()
                 )
 
-                android.util.Log.d("HabitViewModel", "New habit: $newHabit")
-
                 val habitId = repository.createHabit(newHabit)
 
-                android.util.Log.d("HabitViewModel", "Habit created with ID: $habitId")
-
-                // Tạo log cho hôm nay
                 val today = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
                 database.habitLogDao().insertOrUpdateLog(
-                    com.yourapp.habittracker.data.local.entity.HabitLogEntity(
+                    HabitLogEntity(
                         habitId = habitId,
                         date = today,
                         status = "pending",
@@ -84,11 +78,8 @@ class HabitViewModel(application: Application) : AndroidViewModel(application) {
                         completedAt = null
                     )
                 )
-
-                android.util.Log.d("HabitViewModel", "Log created for today: $today")
-
             } catch (e: Exception) {
-                android.util.Log.e("HabitViewModel", "Error: ${e.message}", e)
+                e.printStackTrace()
                 throw e
             }
         }
@@ -138,6 +129,16 @@ class HabitViewModel(application: Application) : AndroidViewModel(application) {
     fun archiveHabit(habitId: Long) {
         viewModelScope.launch {
             repository.archiveHabit(habitId)
+        }
+    }
+
+    // ✅ CHỈ GIỮ 1 METHOD NÀY - XÓA METHOD TRÙNG LẶP BÊN DƯỚI
+    suspend fun getLogByDate(habitId: Long, date: String): HabitLogEntity? {
+        return try {
+            repository.getLogByDate(habitId, date)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
         }
     }
 }

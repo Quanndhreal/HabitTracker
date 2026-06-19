@@ -1,5 +1,6 @@
 package com.yourapp.habittracker.ui.habits
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,8 +34,13 @@ class HabitAdapter(
 
         fun bind(habit: HabitEntity) {
             binding.apply {
+                // Hiển thị tên habit
                 tvHabitTitle.text = habit.name
+
+                // Hiển thị XP
                 tvXp.text = "✦ +${habit.xpReward}XP"
+
+                // Reset checkbox
                 cbHabitCheck.isChecked = false
 
                 // Click vào thẻ để ẩn/hiện menu
@@ -44,18 +50,19 @@ class HabitAdapter(
                         else View.VISIBLE
                 }
 
-                // Checkbox
+                // Checkbox - Hoàn thành
                 cbHabitCheck.setOnClickListener {
                     onCheckClick(habit)
+                    llActionMenu.visibility = View.GONE
                 }
 
-                // Nút Partial
+                // Nút Partial - Hoàn thành một phần
                 btnPartial.setOnClickListener {
                     onPartialClick(habit)
                     llActionMenu.visibility = View.GONE
                 }
 
-                // Nút Skip
+                // Nút Skip - Bỏ qua
                 btnSkip.setOnClickListener {
                     onSkipClick(habit)
                     llActionMenu.visibility = View.GONE
