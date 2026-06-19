@@ -21,6 +21,10 @@ interface HabitDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertHabit(habit: HabitEntity): Long
 
+    // Thêm method này để insert nhiều habits cùng lúc
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertHabits(habits: List<HabitEntity>)
+
     @Update
     suspend fun updateHabit(habit: HabitEntity)
 

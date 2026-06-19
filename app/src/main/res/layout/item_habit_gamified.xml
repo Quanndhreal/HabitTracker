@@ -24,7 +24,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_marginBottom="4dp"
-            android:text="@string/partial"
+            android:text="Một phần"
             android:textColor="#111111"
             android:textStyle="bold"
             android:insetTop="0dp"
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="@string/skip"
+            android:text="Bỏ qua"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:insetTop="0dp"
@@ -93,7 +93,7 @@
                 app:layout_constraintStart_toEndOf="@id/cbHabitCheck"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="packed"
-                tools:text="Habit Name" />
+                tools:text="Tên thói quen" />
 
             <TextView
                 android:id="@+id/tvXp"

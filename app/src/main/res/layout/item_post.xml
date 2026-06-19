@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#111111"
                 android:textStyle="bold"
-                tools:text="Username" />
+                tools:text="Tên người dùng" />
 
             <TextView
                 android:id="@+id/tvStreakInfo"
@@ -45,7 +45,7 @@
                 android:textColor="#FF6D00"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                tools:text="Day 7 of 66" />
+                tools:text="Ngày 7/66" />
         </LinearLayout>
 
         <TextView
@@ -86,7 +86,7 @@
             android:textColor="#DDDDDD"
             android:textSize="24sp"
             android:textStyle="bold"
-            tools:text="Location" />
+            tools:text="Địa điểm" />
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
@@ -97,7 +97,7 @@
         android:layout_marginTop="12dp"
         android:textColor="#111111"
         android:textSize="16sp"
-        tools:text="Description text" />
+        tools:text="Mô tả bài viết" />
 
     <LinearLayout
         android:id="@+id/llReactions"

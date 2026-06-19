@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:text="@string/your_improvements"
+            android:text="Tiến trình của bạn"
             android:textColor="#111111"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -66,7 +66,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                tools:text="Habit Name" />
+                tools:text="Tên thói quen" />
 
             <TextView
                 android:id="@+id/tvHabitDescription"
@@ -75,7 +75,7 @@
                 android:layout_marginTop="6dp"
                 android:textColor="#AAAAAA"
                 android:textSize="14sp"
-                tools:text="Description" />
+                tools:text="Mô tả thói quen" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

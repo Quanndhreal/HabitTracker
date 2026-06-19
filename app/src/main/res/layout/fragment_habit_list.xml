@@ -86,7 +86,7 @@
                     android:layout_height="48dp"
                     android:background="@drawable/bg_round_stats"
                     android:backgroundTint="#FFFFFF"
-                    android:contentDescription="@string/settings"
+                    android:contentDescription="Cài đặt"
                     android:padding="12dp"
                     android:src="@drawable/ic_settings"
                     app:tint="#111111" />
@@ -110,7 +110,7 @@
                     android:fontFamily="sans-serif-medium"
                     android:textColor="#111111"
                     android:textSize="42sp"
-                    tools:text="Day 1" />
+                    tools:text="Ngày 1" />
 
                 <TextView
                     android:id="@+id/tvDayTotal"
@@ -145,7 +145,7 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@id/vTimelineLine"
                 app:layout_constraintTop_toBottomOf="@id/llDayTitle"
-                tools:text="Section Header" />
+                tools:text="Danh sách thói quen" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvHabits"
@@ -167,7 +167,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="24dp"
-        android:text="@string/new_task"
+        android:text="Thêm thói quen"
         android:textColor="@color/white"
         app:backgroundTint="#111111"
         app:icon="@android:drawable/ic_input_add"

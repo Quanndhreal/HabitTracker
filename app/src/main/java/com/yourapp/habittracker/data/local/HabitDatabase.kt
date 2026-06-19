@@ -18,9 +18,10 @@ import kotlinx.coroutines.launch
         DaySummaryEntity::class,
         PostEntity::class,
         AchievementEntity::class,
-        UserStatsEntity::class
+        UserStatsEntity::class,
+        CategoryEntity::class  // ← Thêm CategoryEntity vào đây
     ],
-    version = 1,
+    version = 2,  // ← Tăng version lên 2
     exportSchema = false
 )
 abstract class HabitDatabase : RoomDatabase() {
@@ -30,6 +31,7 @@ abstract class HabitDatabase : RoomDatabase() {
     abstract fun postDao(): PostDao
     abstract fun achievementDao(): AchievementDao
     abstract fun userStatsDao(): UserStatsDao
+    abstract fun categoryDao(): CategoryDao  // ← Thêm CategoryDao vào đây
 
     companion object {
         @Volatile
@@ -66,20 +68,80 @@ abstract class HabitDatabase : RoomDatabase() {
             val achievementDao = db.achievementDao()
             val userStatsDao = db.userStatsDao()
             val postDao = db.postDao()
+            val categoryDao = db.categoryDao()  // ← Lấy categoryDao
 
-            // Insert habits mẫu
-            val habits = listOf(
-                HabitEntity(name = "Wake up at 7:30 AM", description = "Start your day fresh", timeBlock = "Day Start till 10AM", xpReward = 25, icon = "⏰", colorHex = "#FF8A65", sortOrder = 1),
-                HabitEntity(name = "Drink 1.8L Water", description = "Hydration is key to daily energy.", timeBlock = "The Day", xpReward = 25, icon = "💧", colorHex = "#4FC3F7", sortOrder = 2),
-                HabitEntity(name = "Read 30 minutes", description = "Feed your mind daily.", timeBlock = "The Day", xpReward = 30, icon = "📖", colorHex = "#81C784", sortOrder = 3),
-                HabitEntity(name = "No more than 4 hours screen time", description = "Stop doom scrolling.", timeBlock = "The Day", xpReward = 40, icon = "📵", colorHex = "#E57373", sortOrder = 4),
-                HabitEntity(name = "Evening meditation", description = "Clear your mind before sleep", timeBlock = "Evening", xpReward = 35, icon = "🧘", colorHex = "#CE93D8", sortOrder = 5)
+            // Insert Categories
+            val categories = listOf(
+                CategoryEntity(name = "All", icon = "📋", sortOrder = 0, isDefault = true),
+                CategoryEntity(name = "Body", icon = "💪", sortOrder = 1),
+                CategoryEntity(name = "Mind", icon = "🧠", sortOrder = 2),
+                CategoryEntity(name = "Learn", icon = "📚", sortOrder = 3),
+                CategoryEntity(name = "Work", icon = "💼", sortOrder = 4),
+                CategoryEntity(name = "Discipline", icon = "🎯", sortOrder = 5),
+                CategoryEntity(name = "Health", icon = "❤️", sortOrder = 6),
+                CategoryEntity(name = "Creative", icon = "🎨", sortOrder = 7)
             )
-            habitDao.insertHabit(habits[0])
-            habitDao.insertHabit(habits[1])
-            habitDao.insertHabit(habits[2])
-            habitDao.insertHabit(habits[3])
-            habitDao.insertHabit(habits[4])
+            categoryDao.insertCategories(categories)
+
+            // Insert habits mẫu với category
+            val habits = listOf(
+                HabitEntity(
+                    name = "Wake up at 7:30 AM",
+                    description = "Start your day fresh",
+                    timeBlock = "Day Start till 10AM",
+                    xpReward = 25,
+                    icon = "⏰",
+                    colorHex = "#FF8A65",
+                    sortOrder = 1,
+                    category = "Body",
+                    isRecommended = true
+                ),
+                HabitEntity(
+                    name = "Drink 1.8L Water",
+                    description = "Hydration is key to daily energy.",
+                    timeBlock = "The Day",
+                    xpReward = 25,
+                    icon = "💧",
+                    colorHex = "#4FC3F7",
+                    sortOrder = 2,
+                    category = "Health",
+                    isRecommended = false
+                ),
+                HabitEntity(
+                    name = "Read 30 minutes",
+                    description = "Feed your mind daily.",
+                    timeBlock = "The Day",
+                    xpReward = 30,
+                    icon = "📖",
+                    colorHex = "#81C784",
+                    sortOrder = 3,
+                    category = "Learn",
+                    isRecommended = true
+                ),
+                HabitEntity(
+                    name = "No more than 4 hours screen time",
+                    description = "Stop doom scrolling.",
+                    timeBlock = "The Day",
+                    xpReward = 40,
+                    icon = "📵",
+                    colorHex = "#E57373",
+                    sortOrder = 4,
+                    category = "Discipline",
+                    isRecommended = false
+                ),
+                HabitEntity(
+                    name = "Evening meditation",
+                    description = "Clear your mind before sleep",
+                    timeBlock = "Evening",
+                    xpReward = 35,
+                    icon = "🧘",
+                    colorHex = "#CE93D8",
+                    sortOrder = 5,
+                    category = "Mind",
+                    isRecommended = true
+                )
+            )
+            habitDao.insertHabits(habits)  // ← Sử dụng insertHabits
 
             // Insert achievements
             val achievements = listOf(

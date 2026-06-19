@@ -9,7 +9,7 @@ data class HabitEntity(
     val id: Long = 0,
     val name: String,
     val description: String = "",
-    val timeBlock: String = "Morning",  // "Morning", "Afternoon", "Evening"
+    val timeBlock: String = "Morning",
     val xpReward: Int = 25,
     val icon: String = "💧",
     val colorHex: String = "#FF8A65",
@@ -19,5 +19,7 @@ data class HabitEntity(
     val targetDaysPerWeek: Int = 7,
     val sortOrder: Int = 0,
     val createdAt: Long = System.currentTimeMillis(),
-    val updatedAt: Long = System.currentTimeMillis()
+    val updatedAt: Long = System.currentTimeMillis(),
+    val category: String? = null,  // ← Thêm field này
+    val isRecommended: Boolean = false  // ← Thêm field này
 )

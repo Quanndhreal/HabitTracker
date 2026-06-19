@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_weight="1"
-                android:text="Edit your name"
+                android:text="Sửa tên của bạn"
                 android:textColor="#111111"
                 android:textSize="18sp" />
 
@@ -51,19 +51,19 @@
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="12dp">
             <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_menu_recent_history" app:tint="#111111" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:text="Time zone" android:textColor="#111111" android:textSize="16sp" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:text="Múi giờ" android:textColor="#111111" android:textSize="16sp" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=">" android:textColor="#888888" android:textSize="20sp" android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="12dp">
             <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_menu_gallery" app:tint="#111111" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:text="Customize Widget" android:textColor="#111111" android:textSize="16sp" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:text="Tùy chỉnh Widget" android:textColor="#111111" android:textSize="16sp" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=">" android:textColor="#888888" android:textSize="20sp" android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="12dp">
             <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_popup_reminder" app:tint="#111111" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:text="Notifications" android:textColor="#111111" android:textSize="16sp" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:text="Thông báo" android:textColor="#111111" android:textSize="16sp" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=">" android:textColor="#888888" android:textSize="20sp" android:textStyle="bold" />
         </LinearLayout>
 
@@ -72,20 +72,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:layout_marginBottom="16dp"
-            android:text="Current Program"
+            android:text="Chương trình hiện tại"
             android:textColor="#111111"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="12dp">
             <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_menu_edit" app:tint="#111111" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:text="Edit program" android:textColor="#111111" android:textSize="16sp" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:text="Chỉnh sửa chương trình" android:textColor="#111111" android:textSize="16sp" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=">" android:textColor="#888888" android:textSize="20sp" android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal" android:paddingVertical="12dp">
             <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@android:drawable/ic_media_pause" app:tint="#111111" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:text="Pause my program" android:textColor="#111111" android:textSize="16sp" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:layout_weight="1" android:text="Tạm dừng chương trình" android:textColor="#111111" android:textSize="16sp" />
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=">" android:textColor="#888888" android:textSize="20sp" android:textStyle="bold" />
         </LinearLayout>
 

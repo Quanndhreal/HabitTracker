@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast  // ← Thêm import này
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -93,8 +94,19 @@ class HabitListFragment : Fragment() {
 
         // Mở Add Task Bottom Sheet
         binding.fabAddHabit.setOnClickListener {
-            val addTaskSheet = AddTaskBottomSheet()
+            val addTaskSheet = AddTaskBottomSheetFragment.newInstance()
             addTaskSheet.show(parentFragmentManager, "AddTaskBottomSheet")
+        }
+    }
+
+    // Nhận kết quả từ Bottom Sheet
+    override fun onResume() {
+        super.onResume()
+        parentFragmentManager.setFragmentResultListener("add_task_request", this) { _, bundle ->
+            val taskName = bundle.getString("task_name") ?: ""
+            val taskIcon = bundle.getString("task_icon") ?: "✅"
+
+            Toast.makeText(requireContext(), "Đã thêm: $taskName $taskIcon", Toast.LENGTH_SHORT).show()
         }
     }
 

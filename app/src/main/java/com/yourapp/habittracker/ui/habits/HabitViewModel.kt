@@ -13,6 +13,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class HabitViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -23,7 +25,6 @@ class HabitViewModel(application: Application) : AndroidViewModel(application) {
         database.userStatsDao()
     )
 
-    // StateFlow cho danh sách habits
     val activeHabits: StateFlow<List<HabitEntity>> = repository.activeHabits
         .stateIn(
             scope = viewModelScope,
@@ -31,7 +32,6 @@ class HabitViewModel(application: Application) : AndroidViewModel(application) {
             initialValue = emptyList()
         )
 
-    // StateFlow cho time blocks
     val timeBlocks: StateFlow<List<String>> = repository.distinctTimeBlocks
         .stateIn(
             scope = viewModelScope,
@@ -39,7 +39,6 @@ class HabitViewModel(application: Application) : AndroidViewModel(application) {
             initialValue = emptyList()
         )
 
-    // StateFlow cho user stats
     val userStats: StateFlow<UserStatsEntity?> = repository.getUserStats()
         .stateIn(
             scope = viewModelScope,
@@ -47,12 +46,52 @@ class HabitViewModel(application: Application) : AndroidViewModel(application) {
             initialValue = null
         )
 
-    // State cho selected time block
     private val _selectedTimeBlock = MutableStateFlow<String?>(null)
     val selectedTimeBlock: StateFlow<String?> = _selectedTimeBlock.asStateFlow()
 
     fun selectTimeBlock(timeBlock: String) {
         _selectedTimeBlock.value = timeBlock
+    }
+
+    fun createHabitFromBottomSheet(habit: HabitEntity) {
+        viewModelScope.launch {
+            try {
+                android.util.Log.d("HabitViewModel", "Creating habit: ${habit.name}")
+
+                val currentCount = activeHabits.value.size
+                val newHabit = habit.copy(
+                    sortOrder = currentCount + 1,
+                    isActive = true,
+                    isArchived = false,
+                    createdAt = System.currentTimeMillis(),
+                    updatedAt = System.currentTimeMillis()
+                )
+
+                android.util.Log.d("HabitViewModel", "New habit: $newHabit")
+
+                val habitId = repository.createHabit(newHabit)
+
+                android.util.Log.d("HabitViewModel", "Habit created with ID: $habitId")
+
+                // Tạo log cho hôm nay
+                val today = LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE)
+                database.habitLogDao().insertOrUpdateLog(
+                    com.yourapp.habittracker.data.local.entity.HabitLogEntity(
+                        habitId = habitId,
+                        date = today,
+                        status = "pending",
+                        xpEarned = 0,
+                        completedAt = null
+                    )
+                )
+
+                android.util.Log.d("HabitViewModel", "Log created for today: $today")
+
+            } catch (e: Exception) {
+                android.util.Log.e("HabitViewModel", "Error: ${e.message}", e)
+                throw e
+            }
+        }
     }
 
     fun createHabit(

@@ -13,7 +13,7 @@
         android:paddingHorizontal="20dp"
         android:paddingTop="20dp"
         android:paddingBottom="10dp"
-        android:text="@string/journey"
+        android:text="Hành trình của bạn"
         android:textColor="#111111"
         android:textSize="32sp"
         android:textStyle="bold" />

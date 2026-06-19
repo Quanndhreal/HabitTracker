@@ -35,7 +35,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Detail"
+                android:text="Chi tiết thói quen"
                 android:textAlignment="center"
                 android:textColor="#111111"
                 android:textSize="18sp"
@@ -75,7 +75,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="28sp"
                     android:textStyle="bold"
-                    tools:text="Drink 1.8L Water" />
+                    tools:text="Uống 1.8L nước" />
 
                 <TextView
                     android:id="@+id/tvHabitDescription"
@@ -84,7 +84,7 @@
                     android:layout_marginTop="8dp"
                     android:textColor="#888888"
                     android:textSize="14sp"
-                    tools:text="Hydration is key to daily energy." />
+                    tools:text="Cung cấp đủ nước là chìa khóa cho năng lượng hàng ngày." />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -100,7 +100,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="🔥 Streak"
+                            android:text="🔥 Chuỗi ngày"
                             android:textColor="#888888" />
                         <TextView
                             android:id="@+id/tvStreakCount"
@@ -109,7 +109,7 @@
                             android:textColor="#FFFFFF"
                             android:textSize="20sp"
                             android:textStyle="bold"
-                            tools:text="12 Days" />
+                            tools:text="12 ngày" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -120,7 +120,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="📊 Success"
+                            android:text="📊 Tỷ lệ thành công"
                             android:textColor="#888888" />
                         <TextView
                             android:id="@+id/tvSuccessRate"
@@ -142,7 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="32dp"
-            android:text="Consistency Map"
+            android:text="Bản đồ duy trì"
             android:textColor="#111111"
             android:textSize="20sp"
             android:textStyle="bold"
